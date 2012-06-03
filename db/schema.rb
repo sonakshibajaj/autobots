@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120526104309) do
+ActiveRecord::Schema.define(:version => 20120526103323) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(:version => 20120526104309) do
   create_table "items", :force => true do |t|
     t.string   "name"
     t.string   "description"
+    t.float    "price"
     t.string   "short_name"
     t.boolean  "favourite_flag"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "price"
   end
 
 end

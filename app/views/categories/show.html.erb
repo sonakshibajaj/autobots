@@ -1,0 +1,14 @@
+<h1>List of categories</h1>
+<%= link_to 'New Category', 'new' %><br/>		
+<div class='divThumbnails'>
+	<table>	
+	<% Category.all.each do |c| %>	
+			<tr>
+					<%= c.name + "\t"%> 
+			</tr>	
+	<% end %>	</div>
+	</table> 
+</div>
+<% if !@category.nil?  %>		
+			<%= render 'categories/new' %>	
+<% end %>  

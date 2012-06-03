@@ -1,6 +1,11 @@
 Autobots::Application.routes.draw do
 
 
+  get "categories/new"
+  get "categories/create"
+  get "categories/show"
+  get "categories/destroy"
+
 	resources :categories
   # The priority is based upon order of creation:
   # first created -> highest priority.

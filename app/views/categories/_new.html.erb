@@ -1,0 +1,11 @@
+<h2> New Category form </h2>
+<%= form_for(@category) do |f| %>
+	<div>
+		<%= f.label :name %></br>
+		<%= f.text_field :name %>
+	</div>
+	<div>
+		<%= f.label :description %></br>
+		<%= f.text_field :description %>
+	</div>
+<% end %>
