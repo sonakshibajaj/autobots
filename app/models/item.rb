@@ -12,7 +12,7 @@ class Item < ActiveRecord::Base
 	validates	:favourite_flag, :presence=>true
 end
 
-
+#Animesh Commit - Changes
 # == Schema Information
 #
 # Table name: items
