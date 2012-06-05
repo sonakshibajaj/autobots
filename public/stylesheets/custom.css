@@ -1,6 +1,6 @@
 .table{
 	padding: 30px;
-	text-align: center;
+	text-align: right;
 	padding-left: 100px;
 }
 
@@ -14,5 +14,13 @@
 .subheading{
 	text-align: center;
 	color: green;
+}
+
+.category_table{
+	vertical-align: right;
+}
+
+.new_category_form{
+	vertical-align: left;
 }
 

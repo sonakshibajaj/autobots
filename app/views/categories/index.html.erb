@@ -1,31 +1,23 @@
 <div class = "heading">Manage Categories</div>
 <div class = "subheading">Click on any category to view its items</div>
 <br/>
-<%= render 'new' %>
+<table>
+	<tr>
+		<td>
+			<%= render 'new' %>
+		</td>
+		<td>
+			<%= render 'showall' %>
+		</td>
+	</tr>
+</table>
+
+
+
 
 <br/>
 <br/>
-<table class = "table">
-	<% $i=0 %>
-	<% Category.all.each do |category| %>
-		<% if $i%3 == 0 %>
-  	<tr>
-		<% end %>
-			<td>
-				<%= image_tag "food.gif", :alt => " ", :class => "round", :height => "50%", :width => "50%" %>
-				<br/>
-				<%= link_to category.name, category %>
-				<br/>
-				<%= category.description %>
-	
-			</td>
-		<% $i+=1 %>
-		<% if $i%3 == 0 %>
-  	</tr>
-		<% end %>
-	<% end %>
-	
-</table>
+
 
 <br/>
 
