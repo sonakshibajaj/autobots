@@ -1,20 +1,20 @@
 <div class = "heading">Manage Categories</div>
 <div class = "subheading">Click on any category to view its items</div>
 <br/>
+<%= render 'new' %>
 
-<%= link_to "Add Category" , '#'%>
 <br/>
 <br/>
 <table class = "table">
 	<% $i=0 %>
-	<% @category.each do |category| %>
+	<% Category.all.each do |category| %>
 		<% if $i%3 == 0 %>
   	<tr>
 		<% end %>
 			<td>
-				<%= image_tag "category.png", :alt => " ", :class => "round", :height => "50%", :width => "50%" %>
+				<%= image_tag "food.gif", :alt => " ", :class => "round", :height => "50%", :width => "50%" %>
 				<br/>
-				<%= category.name %>
+				<%= link_to category.name, category %>
 				<br/>
 				<%= category.description %>
 	
