@@ -13,4 +13,8 @@ class CategoriesController < ApplicationController
   def destroy
   end
 
+	def index
+		@category = Category.all
+	end
+
 end
