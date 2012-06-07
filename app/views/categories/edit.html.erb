@@ -1,9 +1,6 @@
-<h2> New Category form </h2>
-<table class = "new_form_table">
-	<tr>
-		<td>
-			<%= form_for(@category) do |f| %>
-			<div>
+<%form_for(@category) do |f|%>
+
+<div>
 				<%= f.label :name %></br>
 				<%= f.text_field :name %>
 			</div>
@@ -15,7 +12,3 @@
 				<%= f.submit "Add Category"%>
 			</div>
 			<% end %>
-		</td>
-	</tr>
-</table>
-

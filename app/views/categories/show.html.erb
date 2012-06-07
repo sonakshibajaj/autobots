@@ -1,2 +1,8 @@
-<h2><%= @category.name %></h2><br/>
-<p><%= @category.description %></p>
+<div class='heading'><%= @category.name %></div> 
+<div class='topright'>
+<%=link_to 'Edit' , edit_category_path(@category) %>
+</div>
+<div class='subheading'><%= @category.description %></div>
+
+<%= link_to  "Back", '/categories' , :class => "back_link"%>
+<%= button_to "Delete Category", @category , :confirm => 'Are you sure?', :method => :delete %>

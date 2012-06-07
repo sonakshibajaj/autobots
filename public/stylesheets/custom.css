@@ -2,6 +2,7 @@
 	padding: 30px;
 	text-align: right;
 	padding-left: 100px;
+	width: 900px;
 }
 
 .heading{
@@ -9,6 +10,11 @@
 	color: green;
 	font-weight: bold;
 	font-size: 150%;
+}
+
+.topright img{
+	vertical-align: top;
+	horizontal-align: right;
 }
 
 .subheading{
@@ -24,3 +30,11 @@
 	vertical-align: left;
 }
 
+.new_form_table{
+	width: 10px;
+}
+
+.back_link{
+	color: black;
+	text-decoration: none;
+}
