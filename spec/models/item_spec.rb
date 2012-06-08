@@ -3,7 +3,10 @@ require 'spec_helper'
 describe Item do
   
   before(:each) do
-  	@attr = {:name=>"ItemName", :description=>"ItemDescription", :price => 50.5 , :favourite_flag => true, :short_name => "it01"}
+		@cat_attr = {:name => "unique", :description => "test desc"}
+		@category = Category.create!(@cat_attr)
+  	@attr = {:name=>"ItemName", :description=>"ItemDescription", :price => 50.5 , :favourite_flag => true, :short_name => "it01", :category_id => @category.id}
+		
   end
   
   it "should not have a blank name" do
@@ -47,6 +50,7 @@ describe Item do
 end
 
 
+
 # == Schema Information
 #
 # Table name: items
@@ -54,10 +58,11 @@ end
 #  id             :integer         not null, primary key
 #  name           :string(255)
 #  description    :string(255)
+#  price          :float
 #  short_name     :string(255)
 #  favourite_flag :boolean
 #  created_at     :datetime
 #  updated_at     :datetime
-#  price          :float
+#  category_id    :integer
 #
 

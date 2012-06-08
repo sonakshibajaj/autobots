@@ -1,6 +1,16 @@
 Autobots::Application.routes.draw do
 
 
+  get "items/create"
+
+  get "items/new"
+
+  get "items/show"
+
+  get "items/destroy"
+
+  get "items/edit"
+
   get "categories/new"
   get "categories/create"
   get "categories/show"

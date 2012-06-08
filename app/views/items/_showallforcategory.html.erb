@@ -1,0 +1,29 @@
+<% if !@category.items.nil? %>
+<table class = "table">
+	<% $i=0 %>
+	<% @category.items.all.each do |item| %>
+		<% if $i%3 == 0 %>
+  	<tr>
+		<% end %>
+				<td>
+				<%= image_tag "food.gif", :alt => " ", :class => "round", :height => "50%", :width => "50%" %>
+				<br/>
+				<%= link_to item.name, '#' %>
+				<br/>
+				<%= item.description %>
+				<% if (item.favourite_flag?) %>
+					<%= image_tag "favourite.png", :alt => " ", :class => "round", :height => "6.25%", :width => "6.25%" %>
+				<% else %>
+					<%= image_tag "notfavourite.png", :alt => " ", :class => "round", :height => "7.75%", :width => "7.75%" %>
+				<%end %>
+				<%= item.price %>
+	
+</td>
+		<% $i+=1 %>
+		<% if $i%3 == 0 %>
+  	</tr>
+		<% end %>
+	<% end %>
+	
+</table>
+<% end %>
