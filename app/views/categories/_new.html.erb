@@ -1,7 +1,8 @@
-<h2> New Category form </h2>
+
 <table class = "new_form_table">
 	<tr>
 		<td>
+			<%= render 'shared/error_messages' %>
 			<%= form_for(@category) do |f| %>
 			<div>
 				<%= f.label :name %></br>

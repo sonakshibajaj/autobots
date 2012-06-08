@@ -20,7 +20,7 @@ class CategoriesController < ApplicationController
 		if @category.save
 			redirect_to @category		
 		else
-			redirect_to :categories
+			render 'index'
 		end
   end
 
