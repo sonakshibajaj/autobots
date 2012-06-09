@@ -24,11 +24,7 @@ describe Item do
   	item_nil_price.should_not be_valid
   end
   
-  it "should not have favourite flag as nil" do
-  	item_nil_fav_flag = Item.new(@attr.merge(:favourite_flag=>nil))
-  	item_nil_fav_flag.should_not be_valid
-  end
-  
+    
   it "should not have a name more than 50 characters" do
   	long_name = "a"*51
   	item_long_name = Item.new(@attr.merge(:name => long_name))

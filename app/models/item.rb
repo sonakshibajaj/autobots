@@ -10,15 +10,19 @@ class Item < ActiveRecord::Base
 	validates :short_name, :presence=>true,
 									 :length=>{:maximum=>4}
 	validates :price, :presence=>true
-	validates	:favourite_flag, :presence=>true
 	validates :category_id, :presence=>true
 	validate :category_id_exists
+	validate :favourite_flag_true_or_false
 
 private
 
 	def category_id_exists
 		return false if Category.find(self.category_id).nil?
 	end	
+
+	def favourite_flag_true_or_false
+		return false if !(self.favourite_flag == true ||  self.favourite_flag == false)
+	end
 
 end
 

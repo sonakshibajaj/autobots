@@ -1,2 +1,35 @@
-<h1>Items#new</h1>
-<p>Find me in app/views/items/new.html.erb</p>
+<table class = "new_form_table">
+	<tr>
+		<td>
+			<%= render 'shared/error_messages' %>
+			<%= form_for(@item) do |f| %>
+			<div>
+				<%= f.label :name %></br>
+				<%= f.text_field :name %>
+			</div>
+			<div>
+				<%= f.label :description %></br>
+				<%= f.text_field :description %>
+			</div>
+			<div>
+				<%= f.label "Mark as favourite?" %></br>
+				<%= f.check_box :favourite_flag %>
+			</div>
+			<div>
+				<%= f.label :price %></br>
+				<%= f.range_field :price %>
+			</div>
+			<div>
+				<%= f.label :short_name %></br>
+				<%= f.text_field :short_name %>
+			</div>
+			<div>
+				<%= hidden_field_tag :category_id , @category.id %> 
+			</div>
+			<div>
+				<%= f.submit "Add Item"  %>
+			</div>
+			<% end %>
+		</td>
+	</tr>
+</table>

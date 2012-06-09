@@ -6,4 +6,6 @@
 
 <%= link_to  "Back", '/categories' , :class => "back_link"%>
 <%= button_to "Delete Category", @category , :confirm => 'Are you sure?', :method => :delete %>
+<%= link_to "Add Item" ,:controller => "items", :action => "new", :id => @category, :popup => true %>
 <%= render 'items/showallforcategory' %>
+

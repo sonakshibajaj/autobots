@@ -8,13 +8,13 @@
 				<td>
 				<%= image_tag "food.gif", :alt => " ", :class => "round", :height => "50%", :width => "50%" %>
 				<br/>
-				<%= link_to item.name, '#' %>
+				<%= link_to item.name, :controller => "items", :action => "show" ,:id => item%>
 				<br/>
 				<%= item.description %>
 				<% if (item.favourite_flag?) %>
 					<%= image_tag "favourite.png", :alt => " ", :class => "round", :height => "6.25%", :width => "6.25%" %>
 				<% else %>
-					<%= image_tag "notfavourite.png", :alt => " ", :class => "round", :height => "7.75%", :width => "7.75%" %>
+					<%= image_tag "notfavourite.jpeg", :alt => " ", :class => "round", :height => "7.75%", :width => "7.75%" %>
 				<%end %>
 				<%= item.price %>
 	
