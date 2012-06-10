@@ -4,11 +4,13 @@ class Item < ActiveRecord::Base
 	attr_accessible :name, :description, :short_name, :price, :favourite_flag, :category_id
 	
 	validates :name, :presence=>true,
-									 :length=>{:maximum=>50}
+									 :length=>{:maximum=>50},
+									 :uniqueness => {:case_sensitive => false}
 	validates :description, :length=> {:maximum => 250}
 	
 	validates :short_name, :presence=>true,
-									 :length=>{:maximum=>4}
+									 :length=>{:maximum=>4},
+									 :uniqueness => {:case_sensitive => false}
 	validates :price, :presence=>true
 	validates :category_id, :presence=>true
 	validate :category_id_exists
@@ -17,7 +19,8 @@ class Item < ActiveRecord::Base
 private
 
 	def category_id_exists
-		return false if Category.find(self.category_id).nil?
+			return false if self.category_id.nil?
+			return false if Category.find(self.category_id).nil?
 	end	
 
 	def favourite_flag_true_or_false

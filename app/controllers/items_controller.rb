@@ -3,16 +3,8 @@ class ItemsController < ApplicationController
 
  	def create
 		@attr = params[:item]	
-		puts "########################"
-		puts @attr["favourite_flag"]
 		@attr["favourite_flag"] = (@attr["favourite_flag"] == "1" )
-#			 = true 
-#		else
-#			@attr["favourite_flag"] = false 
-#		end
-		puts @attr["favourite_flag"]
 		@attr["category_id"] = params[:category_id]
-		puts @attr
 		@item = Item.create(@attr)
 		if @item.save
 			redirect_to @item

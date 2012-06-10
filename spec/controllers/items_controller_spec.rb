@@ -11,9 +11,9 @@ describe ItemsController do
 
   describe "GET 'create'" do
     it "should be successful" do
-      get 'create', :item => @item_attr.merge({:name => "TestItemName", :description => "Test Item"}), :category_id => @category.id
+      get 'create', :item => @item_attr.merge({:name => "TestItemName2", :description => "Test Item", :short_name => "TIN2"}), :category_id => @category.id
 			
-			@item = Item.find_by_name("TestItemName")
+			@item = Item.find_by_name("TestItemName2")
       response.should redirect_to @item
     end
   end

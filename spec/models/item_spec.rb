@@ -30,6 +30,16 @@ describe Item do
   	item_long_name = Item.new(@attr.merge(:name => long_name))
   	item_long_name.should_not be_valid
   end
+  it "should have a unique name" do
+  	item_valid = Item.create!(@attr)
+  	item_invalid = Item.new(@attr.merge(:short_name => "it02"))
+  	item_invalid.should_not be_valid
+  end
+  it "should have a unique short name" do
+  	item_valid = Item.create!(@attr)
+  	item_invalid = Item.new(@attr.merge(:name => "testItem2"))
+  	item_invalid.should_not be_valid
+  end
   
   it "should not have a description more than 250 characters" do
 	  long_description = "a" * 251
@@ -42,6 +52,23 @@ describe Item do
   	item_long_name = Item.new(@attr.merge(:short_name => long_name))
   	item_long_name.should_not be_valid
   end
+  
+  it "should not have a blank category id" do
+  	item_nil_category_id = Item.new(@attr.merge(:category_id=>nil))
+  	item_nil_category_id.should_not be_valid
+  end
+  
+  it "should have a valid category_id" do
+  
+  	item_invalid_category_id = Item.new(@attr.merge(:category_id=>2))
+   	item_invalid_category_id.category.should be_blank
+   end
+ 
+  it "should create a valid item" do
+  	valid_item = Item.new(@attr)
+  	valid_item.should be_valid
+  end  
+   
   
 end
 
