@@ -1,11 +1,15 @@
 <div class='heading'><%= @category.name %></div> 
-<div class='topright'>
-<%=link_to 'Edit' , edit_category_path(@category) %>
-</div>
 <div class='subheading'><%= @category.description %></div>
 
+<div class='topright'>
+	<%=link_to 'Edit' , edit_category_path(@category) %>
+</div>
+
 <%= link_to  "Back", '/categories' , :class => "back_link"%>
+
 <%= button_to "Delete Category", @category , :confirm => 'Are you sure?', :method => :delete %>
-<%= link_to "Add Item" ,:controller => "items", :action => "new", :id => @category, :popup => true %>
+
+<%= link_to "Add Item" ,:controller => "items", :action => "new", :id => @category %>
+
 <%= render 'items/showallforcategory' %>
 

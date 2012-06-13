@@ -26,7 +26,9 @@ class CategoriesController < ApplicationController
 
   def show
 		@category = Category.find(params[:id])
-		
+		category_name = @category.name	
+		@title = "#{category_name} : Details"
+		return @category
   end
 
   def destroy
