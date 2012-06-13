@@ -18,8 +18,9 @@ class CategoriesController < ApplicationController
   def create
 		@category = Category.new(params[:category])
 		if @category.save
-			redirect_to @category		
+			redirect_to @category, :flash=>{:success	=> "The #{@category.name} category was successfully created"}		
 		else
+			@title = "Categories"
 			render 'index'
 		end
   end
@@ -37,6 +38,7 @@ class CategoriesController < ApplicationController
 
 	def index
 		@category = Category.new
+		@title = "Categories"
 	end
 
 
