@@ -62,20 +62,64 @@ describe CategoriesController do
 				response.should have_selector('td>a',:content => item.name,
 																						 :href => "items/show?id=#{item.id}")
 			end
+
 		end
 		
-
   end
 
-  describe "GET 'create'" do
-    it "should be successful" do
-      get 'create', :category => @attr.merge({:name => "TestCategoryName", :description => "Test Category"})	
-		@category=	Category.find_by_name("TestCategoryName")		
-      response.should redirect_to @category
-    end
-  end
+  describe "POST 'create'" do
 
-  
+		describe "failure" do
+  	
+			before(:each) do
+				@attr = {:name => "", :description => ""}
+			end
+
+  		it "should have the right title" do
+  			post :create, :category => @attr
+				response.should have_selector('title', :content => "Categories")
+  		end
+			
+			it "should render the index page" do
+				post :create, :category => @attr
+				response.should render_template('index')
+			end
+			
+			it "should not create a category" do
+				lambda do
+					post :create, :category => @attr
+				end.should_not change(Category, :count)
+			end
+			
+  	end
+
+		describe "success" do
+			
+			before(:each) do
+				@attr = {:name => "New Category Name",
+								 :description => "New Category Description"
+				}
+			end
+
+			it "should create a category" do
+				lambda do
+					post :create, :category => @attr
+				end.should change(Category, :count).by(1)
+			end
+			
+			it "should redirect to the category show page" do
+				post :create, :category => @attr
+				response.should redirect_to(category_path(assigns(:category)))
+			end
+				
+			it "should have a welcome message" do
+				post :create, :category => @attr
+				flash[:success].should =~ /category was successfully created/i
+			end
+	
+		end
+
+  end
 
   describe "GET 'destroy'" do
     it "should be successful" do
